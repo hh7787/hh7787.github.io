@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 自适应核心：手机自动适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自适应网页</title>
+    <style>
+        /* 全局样式：适配所有屏幕 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "微软雅黑", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        /* 容器：居中、自适应宽度 */
+        .container {
+            max-width: 1200px; /* 大屏（电视/电脑）最大宽度 */
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: clamp(24px, 5vw, 48px); /* 字体自适应：手机24px，电视48px */
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            font-size: clamp(16px, 2vw, 24px); /* 正文自适应 */
+            margin: 15px 0;
+        }
+        /* 超链接样式：醒目、自适应 */
+        a {
+            display: inline-block;
+            font-size: clamp(16px, 2vw, 24px);
+            color: #3498db;
+            text-decoration: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background: #3498db;
+            color: #fff;
+        }
+        /* 电视大屏优化：更大间距 */
+        @media (min-width: 1920px) {
+            .container {
+                padding: 50px;
+            }
+        }
+        /* 手机小屏优化：紧凑布局 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>自适应超链接网页</h1>
+        <p>👋 欢迎！手机、电脑、电视都能完美显示</p>
+
+        <p>🔗 常用超链接：</p>
+        <a href="https://www.baidu.com" target="_blank">百度</a>
+        <a href="https://www.qq.com" target="_blank">腾讯</a>
+        <a href="https://www.sina.com.cn" target="_blank">新浪</a>
+
+        <p>📌 链接到自己页面：</p>
+        <a href="about.html" target="_blank">关于我们</a>
+        <a href="contact.html" target="_blank">联系我们</a>
+    </div>
+</body>
+</html>
