@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 全设备适配viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>我的APP下载站</title>
 <style>
   * {
@@ -11,56 +12,86 @@
     padding: 0;
     font-family: "Microsoft YaHei", sans-serif;
   }
+  html {
+    /* 字体自适应：大屏电视放大，手机缩小 */
+    font-size: calc(15px + 0.2vw);
+  }
   body {
-    max-width: 600px;
+    width: 96%;
+    max-width: 1800px; /* 4K电视最大限制宽度，不会无限拉宽 */
     margin: 0 auto;
-    padding: 20px;
+    padding: 1rem;
     background-color: #0a192f; /* 暗蓝色背景 */
     color: #e0e0e0; /* 文字白色 */
+    min-height: 100vh;
   }
   h1 {
     text-align: center;
     color: #ffffff; /* 标题白色 */
-    margin-bottom: 20px;
+    margin-bottom: 1.2rem;
+    font-size: clamp(1.5rem,3vw,2.5rem);
   }
   .notice {
     background-color: #112240;
     color: #ccd6f6;
-    padding: 15px;
+    padding: 1rem;
     border-radius: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
     line-height: 1.6;
   }
   .category {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
   }
   .category h3 {
     color: #64ffda;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     padding-left: 10px;
     border-left: 4px solid #64ffda;
+    font-size: clamp(1.1rem,2vw,1.4rem);
   }
   .btn-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 0.75rem;
   }
   .btn-group a {
     text-decoration: none;
+    flex:1 1 140px; /* 最小140px：手机占整行，电脑电视多列 */
   }
   .btn-group button {
-    padding: 10px 25px;
+    width:100%;
+    padding: 0.7rem 0.5rem;
     border: 2px solid #64ffda;
     background-color: #112240;
     color: #64ffda;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
   }
   .btn-group button:hover {
     background-color: #64ffda;
     color: #0a192f;
+  }
+
+  /* 媒体区分：手机/平板/电脑电视 */
+  @media screen and (max-width:768px){
+    body{
+      width:98%;
+      padding:0.7rem;
+    }
+    .btn-group a{
+      flex:1 1 100%; /* 手机按钮单独一行铺满 */
+    }
+  }
+  @media screen and (min-width:1400px){
+    /* 大屏智能电视优化 */
+    body{
+      padding:2rem;
+    }
+    .btn-group a{
+      flex:1 1 180px;
+    }
   }
 </style>
 </head>
@@ -75,10 +106,10 @@
   <div class="category">
     <h3>🔗 电视剧电影类</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/WAFEIMAO.apk" download><button>网飞猫</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/AIYIFAN.apk" download><button>爱壹凡</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/DUBOKU.apk" download><button>独播库</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/ZUPIAN.apk" download><button>荐片</button></a>
+      <a href=" " download><button>网飞猫</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/iyftv2.4.5.apk" download><button>爱壹凡</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/DUBOKU.apk" download><button>独播库</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/ZUPIAN.apk" download><button>荐片</button></a >
     </div>
   </div>
 
@@ -86,10 +117,10 @@
   <div class="category">
     <h3>📌 直播类</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/QUANJUHE.apk" download><button>全聚合</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/YULU.apk" download><button>雨露电视</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/xinhuozb.apk" download><button>星火直播</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/qianxunzb.apk" download><button>千寻直播</button></a>
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/QUANJUHE.apk" download><button>全聚合</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/YULU.apk" download><button>雨露电视</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/xinhuozb.apk" download><button>星火直播</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/qianxunzb.apk" download><button>千寻直播</button></a >
     </div>
   </div>
 
@@ -97,9 +128,9 @@
   <div class="category">
     <h3>📌 应用商店/工具</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/AirPin.PRO.apk" download><button>Airpin PRO</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/AIYIFAN.apk" download><button>野草助手</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/danbeimk.apk" download><button>当贝市场</button></a>
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/AirPin.PRO.apk" download><button>Airpin PRO</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/AIYIFAN.apk" download><button>野草助手</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/danbeimk.apk" download><button>当贝市场</button></a >
     </div>
   </div>
 
@@ -107,7 +138,7 @@
   <div class="category">
     <h3>📌 K歌</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/JTKTV.apk" download><button>家庭KTV</button></a>
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/JTKTV.apk" download><button>家庭KTV</button></a >
     </div>
   </div>
 
@@ -115,14 +146,14 @@
   <div class="category">
     <h3>📌 输入法</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/SGTV.apk" download><button>搜狗TV</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/SCSR.apk" download><button>速成输入法</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/ZYSR.apk" download><button>注音输入法</button></a>
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/SGTV.apk" download><button>搜狗TV</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/SCSR.apk" download><button>速成输入法</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/ZYSR.apk" download><button>注音输入法</button></a >
     </div>
     <h3>📌更新app</h3>
     <div class="btn-group">
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/netflix.mediaclient_8.121.2.apk" download><button>Netflix</button></a>
-      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/Disney.-26.4.1.rc1-2026.03.30.apk" download><button>Disney+</button></a>
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/netflix.mediaclient_8.121.2.apk" download><button>Netflix</button></a >
+      <a href="https://github.com/hh7787/hh7787.github.io/releases/download/v1.0/Disney.-26.4.1.rc1-2026.03.30.apk" download><button>Disney+</button></a >
     </div>
   </div>
 </body>
